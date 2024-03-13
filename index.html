@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="rain.png">
+  <title>Weather App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <div class="card">
+    <div class="search">
+      <input type="text" placeholder="Enter City Name" spellcheck="false">
+      <button> <img src="search.jpeg" class="weather-icon"></button>
+    </div>
+    <div class="weather">
+      <img src="rain.png" class="weather-ic">
+      <h2 class="temp">22°C</h2>
+      <h3 class="city">city</h3>
+
+      <div class="details">
+        <div class="col">
+          <img src="humidity.jpg" class="hum">
+          <div>
+            <span class="humidity">50%</span><br>
+            Humidity
+          </div>
+        </div>
+        <div class="col1">
+          <img src="wind.png" class="win">
+          <div>
+            <span class="wind">15 km/h</span><br>
+            Wind Speed
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+    const apikey = "7e61fc871c0f31b5cd980d5990f04fda";
+    const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+    async function checkWeather(city) {
+
+      const response = await fetch(`${apiurl}${city}&appid=${apikey}`);
+
+      var data = await response.json();
+
+      console.log(data);
+
+      document.querySelector('.city').innerHTML = data.name;
+      document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + "°C";
+      document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
+      document.querySelector('.wind').innerHTML = data.wind.speed + "km/h";
+
+      if (data.weather[0].main == "Clouds") {
+        weathericon.src = "cloud.png";
+      }
+
+    }
+    const searchbox = document.querySelector(".search input");
+    const searchbtn = document.querySelector(".search button");
+    const weathericon = document.querySelector(".weather-ic")
+
+    searchbtn.addEventListener("click", () => {
+      checkWeather(searchbox.value);
+    })
+
+
+
+  </script>
+</body>
+
+</html>

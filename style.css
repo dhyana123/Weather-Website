@@ -1,0 +1,119 @@
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: black;
+    }
+
+    .card {
+        overflow: hidden;
+        width: 70vh;
+        height: 95vh;
+        background: linear-gradient(130deg, #20e8b3, #6f64b4);
+        color: #fff;
+        margin: 20px auto 0;
+        border-radius: 20px;
+        padding: 40px 35px;
+        text-align: center;
+    }
+
+    .search {
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+    }
+
+    .search input {
+        border: 0;
+        outline: 0;
+        background: #ebfffc;
+        font-weight: bold;
+        padding-left: 30px;
+        height: 30px;
+        border-radius: 30px;
+        flex: 1;
+        margin-right: 16px;
+        font-size: 10px;
+    }
+
+    .search button {
+        background: #ebfffc;
+        width: 30px;
+        height: 30px;
+        border: 0;
+        outline: 0;
+        border-radius: 50%;
+    }
+
+    .search button img {
+
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    .weather img {
+        width: 15vw;
+        height: 40vh;
+    }
+
+    .details {
+
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0px;
+        margin-top: 30px;
+        align-items: center;
+    }
+
+    .details .col {
+        display: flex;
+        text-align: left;
+        align-items: center;
+    }
+
+    .details .col1 {
+        display: flex;
+        text-align: left;
+        align-items: center;
+    }
+
+    .details .col .hum {
+        width: 5vw;
+        height: 12vh;
+        mix-blend-mode: multiply;
+        margin-top: 20px;
+    }
+
+    .details .col1 .win {
+        width: 4vw;
+        height: 10vh;
+        mix-blend-mode: multiply;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .win {
+
+        mix-blend-mode: multiply;
+    }
+
+    .humidity {
+        font-size: 15px;
+        margin-top: 20px;
+
+    }
+
+    .hm {
+        margin-top: 5px;
+
+    }
+
+    .wind {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
